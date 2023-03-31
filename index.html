@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/rd/login.css">
+    <style>
+           body {
+        color: white;
+        background-color: rgb(0, 41, 117);
+        font-family: arial;
+    }
+        .logo p{
+            color: white;
+            font-size: 30px;
+            
+        }
+        input {
+            background-color: white;
+            border-radius: 0px;
+            border-width: 0px;
+            height: 20px;
+            outline: none;
+        }
+        input[type="submit"] {
+            cursor: pointer;
+            padding: 5px 5px 5px 5px;
+            height: 40px;
+            
+        }
+        .info {
+        position: fixed;
+        font-size: 20px;
+        font-family: arial;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        opacity:0;
+	      animation:infoWeg 7s;
+          color: black;
+      }
+      @keyframes infoWeg {
+  0%{opacity:1}
+  50%{opacity:1}
+	100%{opacity:0}
+  }
+    </style>
+</head>
+<body>
+    <div class="info">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Logo_informations.svg/1024px-Logo_informations.svg.png" height="50px" width="50px">
+        Es werden keinerlei Daten gespeichert und zum fortfahren müssen auch keine Daten gebraucht werden.
+  </div>
+    <center>
+    <div class="logo">
+        
+            <p>Wi-Fi-Webinterface-Login </p>
+        
+    </div>
+     <div class="login">
+        <form action="/settings.html">
+            <input placeholder="Username"  type="username">
+            <br>
+            <input placeholder="e-mail" type="email">
+            <br>
+            <input placeholder="Password" type="password">
+            <br>
+            <br>
+            <input value="send" type="submit">
+
+        </form>
+     </div>
+    </center>
+</body>
+</html>
