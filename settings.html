@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png">
+    <title>Wi-Fi-Webinterface</title>
     <style>
            body {
         color: white;
@@ -156,6 +157,20 @@ button {
         height: 360px;
         width: 100px;
     }
+    .upload {
+        float: right;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        padding: 5px 5px 5px 5px;
+        font-family: arial;
+    }
+    .upload:hover {
+        border-radius: 0px;
+        background-color: rgba(255, 255, 255, 0.26);
+        transition: 0.2s;
+        border-radius: 5px;
+    }
 
     </style>
 </head>
@@ -167,6 +182,9 @@ button {
         <a href="#menu"><button>Menu</button></a>
         <a href="#files"><button>Files</button></a>
         <a href="#help"><button>Help</button></a>
+        
+            <a class="upload" href=""><img  height="50" width="50" src="https://www.pngall.com/wp-content/uploads/2/Upload-PNG-HD-Image.png"><br>upload</a>
+        
             </div>
 <div class="tab">
     <div id="overview">
