@@ -4,78 +4,227 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png">
-    <title>Wi-Fi-Webinterface-Login</title>
-    <link rel="stylesheet" type="text/css" href="/css/rd/login.css">
+    <title>Document</title>
     <style>
            body {
         color: white;
         background-color: rgb(0, 41, 117);
-        font-family: arial;
     }
-        .logo p{
-            color: white;
-            font-size: 30px;
-            
-        }
-        input {
-            background-color: white;
-            border-radius: 0px;
-            border-width: 0px;
-            height: 20px;
-            outline: none;
-        }
-        input[type="submit"] {
-            cursor: pointer;
-            padding: 5px 5px 5px 5px;
-            height: 40px;
-            
-        }
-        .info {
-        position: fixed;
-        font-size: 14px;
-        font-family: arial;
-        background-color: rgb(255, 255, 255);
+          .task {
+    background-color: rgb(59, 137, 255);
+    height: 70px;
+    width: 600px;
+    
+    display:table;
+}
+    .task button {
+    height: 70px;
+    width: 60px;
+    border-radius: 0px;
+    border-width: 0px;
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+    
+    } 
+    .task button:hover {
+    height: 60px;
+    border-radius: 100%;
+    width: 60px;
+    transition: 0.5s;
+    background-color: rgba(255, 255, 255, 0.514);
+    color: black;
+    }
+    .task button:active {
+    border-radius: 0px;
+    height: 70px;
+    transition: 0.1s;
+    background-color: transparent;
+    color: white;
+    }
+
+#overview:not(:target) .inhalt,
+#overview:target .show {display: none; transition: 0.2s;}
+#overview:target .inhalt {display: fixed;}
+
+#internet:not(:target) .inhalt,
+#internet:target .show {display: none; transition: 0.2s;}
+#internet:target .inhalt {display: fixed;}
+
+#homenetwork:not(:target) .inhalt,
+#homenetwork:target .show {display: none; transition: 0.2s;}
+#homenetwork:target .inhalt {display: fixed;}
+
+#wifi:not(:target) .inhalt,
+#wifi:target .show {display: none; transition: 0.2s;}
+#wifi:target .inhalt {display: fixed;}
+
+#smarthome:not(:target) .inhalt,
+#smarthome:target .show {display: none; transition: 0.2s;}
+#smarthome:target .inhalt {display: fixed;}
+
+#diagnostic:not(:target) .inhalt,
+#diagnostic:target .show {display: none; transition: 0.2s;}
+#diagnostic:target .inhalt {display: fixed;}
+
+#system:not(:target) .inhalt,
+#system:target .show {display: none; transition: 0.2s;}
+#system:target .inhalt {display: fixed;}
+
+#wizards:not(:target) .inhalt,
+#wizards:target .show {display: none; transition: 0.2s;}
+#wizards:target .inhalt {display: fixed;}
+
+.inhalt {
+padding: 20px 20px 1px;
+margin-left: 300px;
+margin-top: 50px;
+position: fixed;
+font-family: arial;
+}
+.show,
+
+.show:hover,
+
+button {
+        background-color: white;
+        color: black;
+        width: 100px;
+        border-width: 0px;
         border-radius: 0px;
-        opacity:0;
-	      animation:infoWeg 7s;
-          color: black;
-          height: 80px;
-            margin-top: -30px;
-          margin-left: -10px;
-          width: 500px;
-      }
-      @keyframes infoWeg {
-  0%{opacity:1}
-  50%{opacity:1}
-	100%{opacity:0}
-  }
+        height: 40px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: black;
+        color: white;
+        transition: 0.5s;
+        -webkit-transition: 0.5s;
+        width: 120px;
+    }
+    .tab button:active {
+        background-color: white;
+        color: black;
+        transition: 0s;
+        border-width: 2px;
+    }
+    button::after {
+        width: 120px;
+    }
+    .cls:hover {
+        border-width: 1px;
+        border-radius: 50px;
+        width: 100px;
+        background-color: white;
+    }
+    .ov {
+        margin-top: 40px;
+        position: fixed;
+    }
+    .in {
+        margin-top: 80px;
+        position: fixed;
+    }
+    .hn {
+        margin-top: 120px;
+        position: fixed;
+    }
+    .wifi {
+        margin-top: 120px;
+        position: fixed;
+    }
+    .sh {
+        margin-top: 160px;
+        position: fixed;
+    }
+    .dn {
+        margin-top: 200px;
+        position: fixed;
+    }
+    .sys {
+        margin-top: 240px;
+        position: fixed;
+    }
+    .wz {
+        margin-top: 280px;
+        position: fixed;
+    }
+    .tab {
+        margin-top: 0px;
+        width: 50px;
+        background-color: white;
+        height: 360px;
+        width: 100px;
+    }
+
     </style>
 </head>
 <body>
-    <div class="info">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Logo_informations.svg/1024px-Logo_informations.svg.png" height="50px" width="50px">
-        Es werden keinerlei Daten gespeichert und zum fortfahren müssen auch keine Daten gebraucht werden.
-  </div>
-    <center>
-    <div class="logo">
-        
-            <p>Wi-Fi-Webinterface-Login </p>
-        
-    </div>
-     <div class="login">
-        <form action="/wifi-webinterface/settings.html">
-            <input placeholder="Username"  type="username">
-            <br>
-            <input placeholder="e-mail" type="email">
-            <br>
-            <input placeholder="Password" type="password">
-            <br>
-            <br>
-            <input value="send" type="submit">
+    
+    <div class="task">
 
-        </form>
-     </div>
-    </center>
+        <a href=""><img height="50" width="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png"></a>
+        <a href="#menu"><button>Menu</button></a>
+        <a href="#files"><button>Files</button></a>
+        <a href="#help"><button>Help</button></a>
+            </div>
+<div class="tab">
+    <div id="overview">
+        <a class="show" href="#overview"><button class="ov">Overview</button></a>
+        <div class="inhalt">
+        <h3>Overview</h3>
+        Here is a diagram
+        </div>
+        </div>
+        <div id="internet">
+            <a class="show" href="#internet"><button class="in">Internet</button></a>
+            <div class="inhalt">
+            <h3>internet</h3>
+            Here is a internet-latez
+            </div>
+            </div>
+            <div id="homenetwork">
+                <a class="show" href="#homenetwork"><button class="hn">Home Network</button></a><a href="#"><button class="cls"><img height="20" width="20" src="https://assets.stickpng.com/images/5a5798809538462e5a82d431.png"></button></a>
+                <div class="inhalt">
+                <h3>Home Network</h3>
+                Look your statistic!
+                </div>
+                </div>
+                <div id="wifi">
+                    <a class="show" href="#wifi"><button class="wifi">Wi-Fi</button></a>
+                    <div class="inhalt">
+                    <h3>Wi-Fi</h3>
+                    Select your Password
+                    </div>
+                    </div>
+                    <div id="smarthome">
+                        <a class="show" href="#smarthome"><button class="sh">Smart Home</button></a>
+                        <div class="inhalt">
+                        <h3>Smart Home</h3>
+                        Track your home!
+                        </div>
+                        </div>
+                        <div id="diagnostic">
+                            <a class="show" href="#diagnostic"><button class="dn">Diagnostic</button></a>
+                            <div class="inhalt">
+                            <h3>Diagnostic</h3>
+                            here is some text
+                            </div>
+                            </div>
+                            <div id="system">
+                                <a class="show" href="#system"><button class="sys">System</button></a>
+                                <div class="inhalt">
+                                <h3>System</h3>
+                                Here you can setting the system
+                                </div>
+                                </div>
+                                <div id="wizards">
+                                    <a class="show" href="#wizards"><button class="wz">wizards</button></a>
+                                    <div class="inhalt">
+                                    <h3>Wizards</h3>
+                                    Here is Wizards
+                                    </div>
+                                    </div>
+</div>
 </body>
 </html>
