@@ -78,10 +78,11 @@
 
 .inhalt {
 padding: 20px 20px 1px;
-margin-left: 300px;
-margin-top: 50px;
+margin-left: 100px;
+margin-top: -50px;
 position: fixed;
 font-family: arial;
+
 }
 .show,
 
@@ -172,6 +173,64 @@ button {
         border-radius: 5px;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+    * {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+
+}
+.container {
+	width: 80%;
+	margin: 0 auto;
+    color: black;
+}
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+.column {
+	flex: 1;
+	margin: 10px;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+}
+.column h2 {
+	margin-top: 0;
+}
+.column ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.column li {
+	padding: 5px;
+	border-bottom: 1px solid #ddd;
+}
+.column li:last-child {
+	border-bottom: none;
+}
+h1 {
+    color: white;
+}
+
+
+
     </style>
 </head>
 <body>
@@ -190,13 +249,46 @@ button {
     <div id="overview">
         <a class="show" href="#overview"><button class="ov">Overview</button></a>
         <div class="inhalt">
-        <h3>Overview</h3>
-        Here is a diagram
+            <br><br>
+        
+        <div class="container">
+            <h1>Overview</h1>
+            <div class="row">
+                <div class="column">
+                    <h2>Info</h2>
+                    <ul>
+                        <li>MAC Address:</li>
+                        <li>Networks:</li>
+                        <li>Clients:</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h2>Status</h2>
+                    <ul>
+                        <li>LAN 1:</li>
+                        <li>LAN 2:</li>
+                        <li>LAN 3:</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    
+                    <h2>System</h2>
+                    <ul>
+                        <li>System Name:</li>
+                        <li>Firmware v.:</li>
+                        <li>Server Tag:</li>
+                        <li>VLAN ID:</li>
+                        <li>Power:</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         </div>
         </div>
         <div id="internet">
             <a class="show" href="#internet"><button class="in">Internet</button></a>
             <div class="inhalt">
+                <br><br>
             <h3>internet</h3>
             Here is a internet-latez
             </div>
