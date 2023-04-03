@@ -1,440 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png">
     <title>Wi-Fi-Webinterface</title>
-    <style>
-           body {
-        color: white;
-        background-color: rgb(0, 41, 117);
-    }
-          .task {
-    background-color: rgb(59, 137, 255);
-    height: 70px;
-    width: 600px;
-    
-    display:table;
-}
-    .task button {
-    height: 70px;
-    width: 60px;
-    border-radius: 0px;
-    border-width: 0px;
-    background-color: transparent;
-    cursor: pointer;
-    color: white;
-    
-    } 
-    .task button:hover {
-    height: 60px;
-    border-radius: 100%;
-    width: 60px;
-    transition: 0.5s;
-    background-color: rgba(255, 255, 255, 0.514);
-    color: black;
-    }
-    .task button:focus {
-    border-radius: 0px;
-    height: 70px;
-    transition: 0.1s;
-    background-color: transparent;
-    color: white;
-    }
-
-#overview:not(:target) .inhalt,
-#overview:target .show {display: none; transition: 0.2s;}
-#overview:target .inhalt {display: fixed;}
-
-#internet:not(:target) .inhalt,
-#internet:target .show {display: none; transition: 0.2s;}
-#internet:target .inhalt {display: fixed;}
-
-#homenetwork:not(:target) .inhalt,
-#homenetwork:target .show {display: none; transition: 0.2s;}
-#homenetwork:target .inhalt {display: fixed;}
-
-#wifi:not(:target) .inhalt,
-#wifi:target .show {display: none; transition: 0.2s;}
-#wifi:target .inhalt {display: fixed;}
-
-#smarthome:not(:target) .inhalt,
-#smarthome:target .show {display: none; transition: 0.2s;}
-#smarthome:target .inhalt {display: fixed;}
-
-#diagnostic:not(:target) .inhalt,
-#diagnostic:target .show {display: none; transition: 0.2s;}
-#diagnostic:target .inhalt {display: fixed;}
-
-#system:not(:target) .inhalt,
-#system:target .show {display: none; transition: 0.2s;}
-#system:target .inhalt {display: fixed;}
-
-#wizards:not(:target) .inhalt,
-#wizards:target .show {display: none; transition: 0.2s;}
-#wizards:target .inhalt {display: fixed;}
-
-#upload:not(:target) .inhalt,
-#upload:target .show {display: none; transition: 0.2s;}
-#upload:target .inhalt {display: fixed;}
-
-
-
-.inhalt {
-padding: 20px 20px 1px;
-margin-left: 100px;
-margin-top: -50px;
-position: fixed;
-font-family: arial;
-
-}
-.show,
-
-.show:hover,
-
-button {
-        background-color: white;
-        color: black;
-        width: 100px;
-        border-width: 0px;
-        border-radius: 0px;
-        height: 40px;
-        cursor: pointer;
-    }
-    button:hover {
-        background-color: black;
-        color: white;
-        transition: 0.5s;
-        -webkit-transition: 0.5s;
-        width: 120px;
-    }
-    .tab button:active {
-        background-color: white;
-        color: black;
-        transition: 0s;
-        border-width: 2px;
-    }
-    
-    
-    
-    button::after {
-        width: 120px;
-    }
-    .cls:hover {
-        border-width: 1px;
-        border-radius: 50px;
-        width: 100px;
-        background-color: white;
-    }
-    .cls:focus {
-        border-radius: 50px;
-        border-width: 0px;
-
-    }
-    .ov {
-        margin-top: 40px;
-        position: fixed;
-    }
-    .in {
-        margin-top: 80px;
-        position: fixed;
-    }
-    .hn {
-        margin-top: 120px;
-        position: fixed;
-    }
-    .wifi {
-        margin-top: 120px;
-        position: fixed;
-    }
-    .sh {
-        margin-top: 160px;
-        position: fixed;
-    }
-    .dn {
-        margin-top: 200px;
-        position: fixed;
-    }
-    .sys {
-        margin-top: 240px;
-        position: fixed;
-    }
-    .wz {
-        margin-top: 280px;
-        position: fixed;
-    }
-    .tab {
-        margin-top: 0px;
-        width: 50px;
-        background-color: white;
-        height: 360px;
-        width: 100px;
-    }
-    .upload {
-        float: right;
-        border-radius: 5px;
-        text-decoration: none;
-        color: white;
-        padding: 5px 5px 5px 5px;
-        font-family: arial;
-    }
-    .upload:hover {
-        border-radius: 0px;
-        background-color: rgba(255, 255, 255, 0.26);
-        transition: 0.2s;
-        border-radius: 5px;
-    }
-    * {
-	box-sizing: border-box;
-}
-body {
-	margin: 0;
-	font-family: Arial, sans-serif;
-
-}
-.container {
-	width: 80%;
-	margin: 0 auto;
-    color: black;
-}
-.row {
-	display: flex;
-	flex-wrap: wrap;
-}
-.column {
-	flex: 1;
-	margin: 10px;
-	padding: 20px;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	background-color: #f9f9f9;
-}
-.column h2 {
-	margin-top: 0;
-}
-.column ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-.column li {
-	padding: 5px;
-	border-bottom: 1px solid #ddd;
-}
-.column li:last-child {
-	border-bottom: none;
-}
-h1 {
-    color: white;
-}
-.pld {
- position: fixed;
- margin-left: 550px;
-margin-top: -75px;
-}
-.pld .inhalt {
-    margin-left: -400px;
-    position: fixed;
-    margin-top: -20px;
-    
-}
-.pld a {
-    text-decoration: none;
-    color: white;
-}
-.pld:hover {
-    background-color: rgba(255, 255, 255, 0.219);
-    border-radius: 5px;
-    transition: 0.2s;
-}
-input[type="file"] {
-    background-color: white;
-    padding: 5px 5px 5px 5px;
-    color: black;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.files {
-    padding: 5px 5px 200px 5px;
-    width: 270px;
-    background-color: white;
-    border-radius: 5px;
-
-}
-iframe {
-    width: 260px;
-    background-color: black;
-}
-.A {
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
-    background-color: rgb(224, 33, 33);
-    color: white;
-    position: fixed;
-    cursor: pointer;
-    margin-left: 200px;
-    margin-top: 40px;
-}
-.A:hover {
-    background-color: rgb(177, 26, 26);
-}
-.A p {
-    margin-left: 17px;
-    margin-top: 15px;
-    font-size: 20px;
-}
-.B {
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
-    background-color: rgb(224, 33, 33);
-    color: white;
-    position: fixed;
-    cursor: pointer;
-    margin-left: 150px;
-    margin-top: 100px;
-}
-.B p {
-    margin-left: 17px;
-    margin-top: 15px;
-    font-size: 20px;
-}
-.B:hover {
-    background-color: rgb(177, 26, 26);
-}
-.START {
-    background-color: rgb(182, 182, 182);
-    display: inline-block;
-    padding: 0px 10px 0px 10px;
-    cursor: pointer; 
-}
-.START:active {
-    background-color: rgb(153, 153, 153);
-
-}
-
-    </style>
-</head>
-<body>
-    
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
     <div class="task">
-
-        <a href=""><img height="50" width="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png"></a>
-        <a href="#menu"><button>Menu</button></a>
-        <a href="#files"><button>Files</button></a>
-        <a href="#help"><button>Help</button></a>
-        
-<div class="pld">
-    <div id="upload">
-        <a href="#upload"><img  height="50" width="50" src="https://www.pngall.com/wp-content/uploads/2/Upload-PNG-HD-Image.png"><br>upload</a>
-        <div class="inhalt">
-                <h1>Upload</h1>
-                <input type="file">
-                <h2>File Ordner</h2>
-                <div class="files">
-                    <iframe></iframe>
-                    <div class="A"><p>A</p></div>
-                    <div class="B"><p>B</p></div>
-                    <div class="START"><p>START</p></div>
-                </div>
-        </div>
-    </div>
-</div>
-        
+      <a href="">
+        <img height="50" width="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png">
+      </a>
+      <a href="#menu">
+        <button>Menu</button>
+      </a>
+      <a href="#files">
+        <button>Files</button>
+      </a>
+      <a href="#help">
+        <button>Help</button>
+      </a>
+      <div class="pld">
+        <div id="upload">
+          <a href="#upload">
+            <img height="50" width="50" src="https://www.pngall.com/wp-content/uploads/2/Upload-PNG-HD-Image.png">
+            <br>upload </a>
+          <div class="inhalt">
+            <h1>Upload</h1>
+            <input type="file">
+            <h2>File Ordner</h2>
+            <div class="files">
+              <iframe src="/write.txt"></iframe>
+              <div class="A">
+                <p>A</p>
+              </div>
+              <div class="B">
+                <p>B</p>
+              </div>
+              <div class="START">
+                <p>START</p>
+              </div>
             </div>
-<div class="tab">
-    <div id="overview">
-        <a href="#overview"><button class="ov">Overview</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="close">
+      <a href="#">
+        <button class="cls">
+          <img height="20" width="20" src="https://www.freeiconspng.com/uploads/actions-application-exit-icon-10.png">
+        </button>
+      </a>
+    </div>
+    <div class="tab">
+      <div id="overview">
+        <a href="#overview">
+          <div class="ov"><button>Overview</button></div>
+        </a>
         <div class="inhalt">
-            <br><br>
-        
-        <div class="container">
+          <br>
+          <br>
+          <div class="container">
             <h1>Overview</h1>
             <div class="row">
-                <div class="column">
-                    <h2>Info</h2>
-                    <ul>
-                        <li>MAC Address:</li>
-                        <li>Networks:</li>
-                        <li>Clients:</li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <h2>Status</h2>
-                    <ul>
-                        <li>LAN 1:</li>
-                        <li>LAN 2:</li>
-                        <li>LAN 3:</li>
-                    </ul>
-                </div>
-                <div class="column">
-                    
-                    <h2>System</h2>
-                    <ul>
-                        <li>System Name:</li>
-                        <li>Firmware v.:</li>
-                        <li>Server Tag:</li>
-                        <li>VLAN ID:</li>
-                        <li>Power:</li>
-                    </ul>
-                </div>
+              <div class="column">
+                <h2>Info</h2>
+                <ul>
+                  <li>MAC Address:</li>
+                  <li>Networks:</li>
+                  <li>Clients:</li>
+                </ul>
+              </div>
+              <div class="column">
+                <h2>Status</h2>
+                <ul>
+                  <li>LAN 1:</li>
+                  <li>LAN 2:</li>
+                  <li>LAN 3:</li>
+                </ul>
+              </div>
+              <div class="column">
+                <h2>System</h2>
+                <ul>
+                  <li>System Name:</li>
+                  <li>Firmware v.:</li>
+                  <li>Server Tag:</li>
+                  <li>VLAN ID:</li>
+                  <li>Power:</li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+      <div id="internet">
+        <a href="#internet">
+          <div class="in"><button>Internet</button></div>
+        </a>
+        <div class="inhalt">
+          <br>
+          <br>
+          <h3>internet</h3> Here is a internet-latez
         </div>
+      </div>
+      <div id="homenetwork">
+        <a href="#homenetwork">
+          <div class="hn"><button>Home Network</button></div>
+        </a>
+        <div class="inhalt">
+          <h3>Home Network</h3> Look your statistic!
         </div>
-        <div id="internet">
-            <a href="#internet"><button class="in">Internet</button></a>
-            <div class="inhalt">
-                <br><br>
-            <h3>internet</h3>
-            Here is a internet-latez
-            </div>
-            </div>
-            <div id="homenetwork">
-                <a href="#homenetwork"><button class="hn">Home Network</button></a><a href="#"><button class="cls"><img height="20" width="20" src="https://www.freeiconspng.com/uploads/actions-application-exit-icon-10.png"></button></a>
-                <div class="inhalt">
-                <h3>Home Network</h3>
-                Look your statistic!
-                </div>
-                </div>
-                <div id="wifi">
-                    <a href="#wifi"><button class="wifi">Wi-Fi</button></a>
-                    <div class="inhalt">
-                    <h3>Wi-Fi</h3>
-                    Select your Password
-                    </div>
-                    </div>
-                    <div id="smarthome">
-                        <a href="#smarthome"><button class="sh">Smart Home</button></a>
-                        <div class="inhalt">
-                        <h3>Smart Home</h3>
-                        Track your home!
-                        </div>
-                        </div>
-                        <div id="diagnostic">
-                            <a href="#diagnostic"><button class="dn">Diagnostic</button></a>
-                            <div class="inhalt">
-                            <h3>Diagnostic</h3>
-                            here is some text
-                            </div>
-                            </div>
-                            <div id="system">
-                                <a href="#system"><button class="sys">System</button></a>
-                                <div class="inhalt">
-                                <h3>System</h3>
-                                Here you can setting the system
-                                </div>
-                                </div>
-                                <div id="wizards">
-                                    <a href="#wizards"><button class="wz">wizards</button></a>
-                                    <div class="inhalt">
-                                    <h3>Wizards</h3>
-                                    Here is Wizards
-                                    </div>
-                                    </div>
-</div>
-</body>
+      </div>
+      <div id="wifi">
+        <a href="#wifi">
+          <div class="wifi"><button>Wi-Fi</button></div>
+        </a>
+        <div class="inhalt">
+          <h3>Wi-Fi</h3> Select your Password
+        </div>
+      </div>
+      <div id="smarthome">
+        <a href="#smarthome">
+          <div class="sh"><button>Smart Home</button></div>
+        </a>
+        <div class="inhalt">
+          <h3>Smart Home</h3> Track your home!
+        </div>
+      </div>
+      <div id="diagnostic">
+        <a href="#diagnostic">
+          <div class="dn"><button>Diagnostic</button></div>
+        </a>
+        <div class="inhalt">
+          <h3>Diagnostic</h3> here is some text
+        </div>
+      </div>
+      <div id="system">
+        <a href="#system">
+          <div class="sys"><button>System</button></div>
+        </a>
+        <div class="inhalt">
+          <h3>System</h3> Here you can setting the system
+        </div>
+      </div>
+      <div id="wizards">
+        <a href="#wizards">
+          <div class="wz"><button>wizards</button></div>
+        </a>
+        <div class="inhalt">
+          <h3>Wizards</h3> Here is Wizards
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
